@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "create-cdc-with-kaggle"
+version = "0.1.0"
+description = ""
+authors = ["Yan Robim <yanrobim@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+kaggle = "^1.7.4.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
