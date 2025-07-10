@@ -97,16 +97,16 @@ def CDC_development(tables):
 
         
         # Pegando a data e hora atual.
-        now = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        now = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 
         # Construindo o nome que será salvo. Com o nome da coluna, data e hora.
-        filename = f"./data/cdc/{table['name']}-CDC_{now}.csv"
+        filename = f"./data/cdc/{table['name']}_CDC__{now}.csv"
 
         df_update.to_csv(filename, index=False, sep=table["sep"])
 
         print("Processo do CDC concluído!")
 
 
-def main_CDC():
+def main_cdc():
     CDC_development(json_file["tables"])
 

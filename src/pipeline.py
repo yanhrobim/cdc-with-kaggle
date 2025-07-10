@@ -1,5 +1,6 @@
 from connection_and_install_dataset import main_connection_kaggle
-from create_cdc import main_CDC
+from create_cdc import main_cdc
+from connection_s3 import main_upload_files_s3
 import json
 import time
 
@@ -19,10 +20,10 @@ def pipeline():
         timer *= 86400
     
     while True:
-            
-        main_connection_kaggle()
-        main_CDC()
 
+        main_connection_kaggle()    
+        main_cdc()
+        main_upload_files_s3()
 
         time.sleep(timer)
 
