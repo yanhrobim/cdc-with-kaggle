@@ -36,10 +36,17 @@ def main_upload_files_s3():
         # Construindo o nome que será salvo. Com o nome da coluna, data e hora.
         filename = f"{table['name']}_CDC__{now}.csv"
 
+        print("Ingestão de arquivos CDC no Bucket S3...")
 
-        upload_files(file_path=f"C:/Users/vinic/Projetos/meus_projetos/cdc-with-kaggle/src/data/cdc/{filename}", 
-                     bucket="treinamento-dws-raw",
-                     file_name=f"upsell/cdc/{filename}")
+        if os.path.isfile(f"C:/Users/vinic/Projetos/meus_projetos/cdc-with-kaggle/src/data/cdc/{filename}"):
+            upload_files(file_path=f"C:/Users/vinic/Projetos/meus_projetos/cdc-with-kaggle/src/data/cdc/{filename}", 
+                         bucket="treinamento-dws-raw",
+                         file_name=f"upsell/cdc/{filename}")
         
-        return None
+            print("Ingestão de arquivos CDC no Bucket S3 concluída com sucesso!")
+
+        if not os.path.isfile(f"C:/Users/vinic/Projetos/meus_projetos/cdc-with-kaggle/src/data/cdc/{filename}"):
+            print(f"Sem novos arquivos CDC da tabela [{table['name']}] para armazenar no S3.")
+            continue
+    
 

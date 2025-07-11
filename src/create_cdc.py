@@ -46,28 +46,28 @@ def get_insert_lines(df_last, df_current, pk):
 
 def get_delete_lines(df_last, df_current, pk):
         
-        # Contém a mesma lógica de Insert, mas agora, com dados que no df antigo existem, mas no df atual não existem mais.
-        df_delete = df_last[~df_last[pk].isin(df_current[pk])].copy()
-        df_delete["OP"] = "D"
+    # Contém a mesma lógica de Insert, mas agora, com dados que no df antigo existem, mas no df atual não existem mais.
+    df_delete = df_last[~df_last[pk].isin(df_current[pk])].copy()
+    df_delete["OP"] = "D"
 
-        return df_delete
+    return df_delete
 
 
 def create_CDC(df_last, df_current, pk, date_line):
 
     print("Criando CDC das Tabelas...")
 
-    # Executando função get para encontrar linhas de Insert/Novas.
-    df_insert_operation = get_insert_lines(df_current, df_last, pk)
-
     # Executando função para encontrar linhas que foram atualizadas. 
-    df_update_operation = get_updated_lines(df_current, df_last, pk, date_line)
+    df_update_operation = get_updated_lines(df_last, df_current, pk, date_line)
+
+    # Executando função get para encontrar linhas de Insert/Novas.
+    df_insert_operation = get_insert_lines(df_last, df_current, pk)
 
     # Executando função para encontrar linhas que foram deletadas.
-    df_delete_operation = get_delete_lines(df_current, df_last, pk)
+    df_delete_operation = get_delete_lines(df_last, df_current, pk)
 
     # Concatenando todas as linhas encontradas em um único Dataframe, diferenciando-as com a coluna OP.
-    df_concat = pd.concat([df_insert_operation, df_update_operation, df_delete_operation], ignore_index=True)
+    df_concat = pd.concat([df_update_operation, df_insert_operation, df_delete_operation], ignore_index=True)
 
     return df_concat
 

@@ -1,9 +1,9 @@
 import os
 import shutil
 import dotenv
-from kaggle.api.kaggle_api_extended import KaggleApi
+from kaggle import KaggleApi
 
-
+print(dotenv.load_dotenv(".env"))
 
 KAGGLE_USERNAME = os.getenv("KAGGLE_USERNAME")
 KAGGLE_KEY = os.getenv("KAGGLE_KEY")
@@ -17,7 +17,7 @@ def install_kaggle_dataset(dataset, path):
     print(f"Instalando arquivos do dataset para a pasta ({path}) do diretório do projeto." )
 
     # Assinatura: dataset_download_files(dataset, path=None, force=False, quiet=True, unzip=False) 
-    api.dataset_download_files(dataset, path=path, unzip=True)
+    api.dataset_download_files(dataset, path, unzip=True)
 
     print("Download Concluído com Sucesso!")
 
@@ -52,4 +52,4 @@ def move_from_actual_to_last():
 def main_connection_kaggle():
 
     move_from_actual_to_last()
-    install_kaggle_dataset(dataset="teocalvo/teomewhy-loyalty-system", path="./data/current")
+    install_kaggle_dataset(dataset="teocalvo/teomewhy-loyalty-system", path="data/current/")

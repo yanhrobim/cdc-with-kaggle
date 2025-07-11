@@ -21,9 +21,11 @@ def pipeline():
     
     while True:
 
-        main_connection_kaggle()    
+
         main_cdc()
+        
         main_upload_files_s3()
+
 
         time.sleep(timer)
 
