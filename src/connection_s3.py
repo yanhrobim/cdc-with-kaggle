@@ -41,7 +41,7 @@ def main_upload_files_s3():
         if os.path.isfile(f"C:/Users/vinic/Projetos/meus_projetos/cdc-with-kaggle/src/data/cdc/{filename}"):
             upload_files(file_path=f"C:/Users/vinic/Projetos/meus_projetos/cdc-with-kaggle/src/data/cdc/{filename}", 
                          bucket="treinamento-dws-raw",
-                         file_name=f"upsell/cdc/{filename}")
+                         file_name=f"upsell/cdc/{table['name']}/{filename}")
         
             print("Ingestão de arquivos CDC no Bucket S3 concluída com sucesso!")
 
