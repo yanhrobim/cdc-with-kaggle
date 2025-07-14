@@ -110,3 +110,7 @@ def CDC_development(tables):
 def main_cdc():
     CDC_development(json_file["tables"])
 
+
+if __name__ == "__main__":
+    main_cdc()
+

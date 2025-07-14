@@ -51,3 +51,6 @@ def main_upload_files_s3():
             continue
     
 
+if __name__ == "__main__":
+    main_upload_files_s3()
+

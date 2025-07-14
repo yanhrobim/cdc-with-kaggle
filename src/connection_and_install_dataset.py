@@ -53,3 +53,7 @@ def main_connection_kaggle():
 
     move_from_actual_to_last()
     install_kaggle_dataset(dataset="teocalvo/teomewhy-loyalty-system", path="data/current/")
+
+
+if __name__ == "__main__":
+    main_connection_kaggle()
