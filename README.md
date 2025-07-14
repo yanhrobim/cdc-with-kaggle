@@ -11,7 +11,7 @@ Project CDC With Dataset Kaggle </h1>
 
 <p align="center">
   <a href="#-sobre-o-projeto">Sobre</a> •
-  <a href="#-dataset">Cenário dos Dados</a> •
+  <a href="#-dataset">Dataset</a> •
   <a href="#-arquitetura-do-fluxo-de-dados">Arquitetura</a> •
   <a href="#-configurações">Configurações</a> •
   <a href="#-instalação">Instalação de Dependências</a> •
@@ -34,7 +34,7 @@ Os dados utilizados no projeto são de um **([Dataset](https://www.kaggle.com/da
 O Dataset é atualizado a cada 6 horas através de um workflow automatizado mantido pelo Streamer, garantindo uma fonte de dados constantemente atualizada.
 
 ## 🧱 Arquitetura do Fluxo de Dados
-![alt text](image.png)
+![image](./Arquitetura.png)
 
 O pipeline é construído em Python e aborda princípios de um ETL, é composto em três etapas principais:
 * **```Extract``` — localizado em: ```./src/connection_and_install_dataset.py```**
@@ -205,5 +205,7 @@ O principal objetivo deste projeto foi resolver meu problema de falta de dados b
 ## 👨‍💻 Autor
 
 Feito Por [Yan Robim](https://github.com/YanZN0).
+
+Email para contato: @yanrobim@gmail.com
 
 
