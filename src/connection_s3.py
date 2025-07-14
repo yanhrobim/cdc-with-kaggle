@@ -9,6 +9,7 @@ load_dotenv()
 AWS_ACCESS_KEY_ID= os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY= os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_DEFAULT_REGION= os.getenv("AWS_DEFAULT_REGION")
+PATH_FILES= os.getenv("PATH_FILES")
 
 with open("config.json", "r") as open_file:
     json_file = json.load(open_file)
@@ -38,14 +39,14 @@ def main_upload_files_s3():
 
         print("Ingestão de arquivos CDC no Bucket S3...")
 
-        if os.path.isfile(f"C:/Users/vinic/Projetos/meus_projetos/cdc-with-kaggle/src/data/cdc/{filename}"):
-            upload_files(file_path=f"C:/Users/vinic/Projetos/meus_projetos/cdc-with-kaggle/src/data/cdc/{filename}", 
+        if os.path.isfile(f"{PATH_FILES}{filename}"):
+            upload_files(file_path=f"{PATH_FILES}{filename}", 
                          bucket="treinamento-dws-raw",
                          file_name=f"upsell/cdc/{table['name']}/{filename}")
         
             print("Ingestão de arquivos CDC no Bucket S3 concluída com sucesso!")
 
-        if not os.path.isfile(f"C:/Users/vinic/Projetos/meus_projetos/cdc-with-kaggle/src/data/cdc/{filename}"):
+        if not os.path.isfile(f"{PATH_FILES}{filename}"):
             print(f"Sem novos arquivos CDC da tabela [{table['name']}] para armazenar no S3.")
             continue
     
