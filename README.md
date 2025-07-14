@@ -8,35 +8,33 @@ Project CDC With Dataset Kaggle </h1>
   <img src="https://img.shields.io/badge/Python-3.11-blue?logo=python" />
   <img src="https://img.shields.io/badge/Status-Projeto%20Concluído-green" />
   <img src="https://img.shields.io/badge/license-MIT-green" />
-</p>
 
 <p align="center">
-  <a href="#sobre-o-projeto">Sobre</a> •
-  <a href="#arquitetura-do-fluxo-de-dados">Arquitetura Projeto</a> •
-  <a href="#dataset">Cenário dos Dados</a> •
-  <a href="#configurações">Configurações</a> •
-  <a href="#instalação">Instalação de Dependências</a> •
-  <a href="#como-executar">Como Executar</a> •
+  <a href="#-sobre-o-projeto">Sobre</a> •
+  <a href="#-dataset">Cenário dos Dados</a> •
+  <a href="#-arquitetura-do-fluxo-de-dados">Arquitetura</a> •
+  <a href="#-configurações">Configurações</a> •
+  <a href="#-instalação">Instalação de Dependências</a> •
+  <a href="#-como-executar">Como Executar</a> •
   <a href="#-licença">Licença</a> •
-
-
-
+  <a href="#-considerações-finais">Considerações Finais</a> •
+  <a href="#-autor">Autor</a> •
 </p>
 
 ---
 
-## 📌 Sobre o Projeto:
+## 📌 Sobre o Projeto
 Projeto implementa um pipeline de dados baseado em um **ETL Incremental**, com o objetivo de gerar e obter arquivos **CDC (Change Data Capture)** com armazenamento em um Bucket Amazon **S3**. Simulando um processo completo de ingestão orientada a **Data Lake**.
 
 Este projeto foi desenvolvido com o objetivo de aplicar conceitos da engenharia de dados desenvolvendo um processo completo de **ETL** orientado a **Data Lake**, fazendo uma **ingestão incremental**, transformação com Pandas e integração com **nuvem**. Além disso, juntamente contém o objetivo de servir como fonte de dados brutos para estudos futuros com ferramentas que aplicam limpeza, orquestração, processamento distribuído e automatização.
 
-### 📦 Dataset
+## 📦 Dataset
 Os dados utilizados no projeto são de um **([Dataset](https://www.kaggle.com/datasets/teocalvo/teomewhy-loyalty-system))**  do Kaggle disponibilizado por um Streamer. O conjunto de dados se baseia em um Sistema de Pontos, conforme os usuários realizam iterações durante as transmissões ganham pontos. Desta forma, acumulam pontos para realização de trocas na lojinha ou realização de ações na transmissão.
 
 O Dataset é atualizado a cada 6 horas através de um workflow automatizado mantido pelo Streamer, garantindo uma fonte de dados constantemente atualizada.
 
-### 🧱 Arquitetura do Fluxo de Dados
-![image]("https://github.com/user-attachments/assets/330323db-9cde-4bd9-9f28-de76cefe0a50")
+## 🧱 Arquitetura do Fluxo de Dados
+![alt text](image.png)
 
 O pipeline é construído em Python e aborda princípios de um ETL, é composto em três etapas principais:
 * **```Extract``` — localizado em: ```./src/connection_and_install_dataset.py```**
