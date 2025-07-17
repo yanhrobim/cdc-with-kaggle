@@ -2,7 +2,7 @@
 Project CDC With Dataset Kaggle </h1>
 
 <p align="center">
-  <a href="https://github.com/YanZN0">
+  <a href="https://github.com/yanhrobim">
   <img src="https://img.shields.io/badge/GitHub-Yan Robim-181717?logo=github"/>
   </a>
   <img src="https://img.shields.io/badge/Python-3.11-blue?logo=python" />
